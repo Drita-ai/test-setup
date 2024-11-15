@@ -1,4 +1,4 @@
-import { toUpperCase } from "../app/Utils";
+import { getStringInfo, toUpperCase } from "../app/Utils";
 
 describe("Utils test suite", () => {
   it("should return uppercase of valid string", () => {
@@ -11,5 +11,32 @@ describe("Utils test suite", () => {
 
     // assert:
     expect(actual).toBe(expected);
+  });
+});
+
+describe("getStringInfo for arg My-String should", () => {
+  test("return right length", () => {
+    const actual = getStringInfo("My-String");
+    expect(actual.characters).toHaveLength(9);
+  });
+
+  test("return right lower case", () => {
+    const actual = getStringInfo("My-String");
+    expect(actual.lowerCase).toBe("my-string");
+  });
+
+  test("return right upper case", () => {
+    const actual = getStringInfo("My-String");
+    expect(actual.upperCase).toBe("MY-STRING");
+  });
+
+  test("return defined extra info", () => {
+    const actual = getStringInfo("My-String");
+    expect(actual.extraInfo).toBeDefined();
+  });
+
+  test("return right extra info", () => {
+    const actual = getStringInfo("My-String");
+    expect(actual.extraInfo).toEqual({});
   });
 });
