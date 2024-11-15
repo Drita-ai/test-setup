@@ -1,3 +1,10 @@
+// For testing jest Hooks
+export class StringUtils {
+  public toUpperCase(arg: string) {
+    return toUpperCase(arg);
+  }
+}
+
 export function toUpperCase(arg: string) {
   return arg.toUpperCase();
 }

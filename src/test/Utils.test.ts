@@ -1,6 +1,21 @@
-import { getStringInfo, toUpperCase } from "../app/Utils";
+import { getStringInfo, StringUtils, toUpperCase } from "../app/Utils";
 
 describe("Utils test suite", () => {
+  describe("StringUtils tests", () => {
+    // Utilizing JEST hook to initialize class
+    let sut: StringUtils;
+
+    beforeEach(() => {
+      sut = new StringUtils();
+    });
+
+    it("Should return correct upperCase", () => {
+      const actual = sut.toUpperCase("abc");
+
+      expect(actual).toBe("ABC");
+    });
+  });
+
   it("should return uppercase of valid string", () => {
     // arrange:
     const sut = toUpperCase;
@@ -43,7 +58,7 @@ describe("getStringInfo for arg My-String should", () => {
 });
 
 // Parameterized Tests
-describe.only("ToUpperCase examples", () => {
+describe("ToUpperCase examples", () => {
   it.each([
     { input: "abc", expected: "ABC" },
     { input: "My-String", expected: "MY-STRING" },
