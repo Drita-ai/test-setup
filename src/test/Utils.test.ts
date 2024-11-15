@@ -14,6 +14,7 @@ describe("Utils test suite", () => {
   });
 });
 
+// Multiple test structures
 describe("getStringInfo for arg My-String should", () => {
   test("return right length", () => {
     const actual = getStringInfo("My-String");
@@ -38,5 +39,17 @@ describe("getStringInfo for arg My-String should", () => {
   test("return right extra info", () => {
     const actual = getStringInfo("My-String");
     expect(actual.extraInfo).toEqual({});
+  });
+});
+
+// Parameterized Tests
+describe.only("ToUpperCase examples", () => {
+  it.each([
+    { input: "abc", expected: "ABC" },
+    { input: "My-String", expected: "MY-STRING" },
+    { input: "def", expected: "DEF" },
+  ])("$input toUpperCase should be $expected", ({ input, expected }) => {
+    const actual = toUpperCase(input);
+    expect(actual).toBe(expected);
   });
 });
