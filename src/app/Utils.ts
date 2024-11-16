@@ -1,6 +1,10 @@
 // For testing jest Hooks
 export class StringUtils {
   public toUpperCase(arg: string) {
+    // Check for the argument
+    if (!arg) {
+      throw new Error("Invalid argument!");
+    }
     return toUpperCase(arg);
   }
 }

@@ -14,6 +14,20 @@ describe("Utils test suite", () => {
 
       expect(actual).toBe("ABC");
     });
+
+    // Different ways for Testing for an Error!
+    it("Should throw an error on invalid argument - function", () => {
+      function expectError() {
+        const actual = sut.toUpperCase("");
+      }
+      expect(expectError).toThrow();
+    });
+
+    it("Should throw an error on invalid argument - arrow function", () => {
+      expect(() => {
+        sut.toUpperCase("");
+      }).toThrow();
+    });
   });
 
   it("should return uppercase of valid string", () => {
